@@ -1,5 +1,6 @@
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
+import { useSearch } from "../contexts/SearchContext";
 
 //Base API URL//
 const BASE_API_URL = "https://api.themoviedb.org/3/search/";
@@ -7,6 +8,7 @@ const API_KEY = "8b9baf966f3d0d2de6f7bc2cc9417531";
 
 export default function Header() {
   const [query, setQuery] = useState("");
+  const { setMovieList, setTvSeriesList } = useSearch();
 
   //Movie API URL //
   const movieApiURL = new URL(BASE_API_URL + "movie");
@@ -22,13 +24,15 @@ export default function Header() {
   // Fetch film e serie tv
   const fetchMovies = () => {
     axios.get(movieApiURL).then((res) => {
-      console.log(res.data);
+      console.log(res.data.results);
+      setMovieList(res.data.results);
     });
   };
 
   const fetchTvSeries = () => {
     axios.get(tvApiURL).then((res) => {
-      console.log(res.data);
+      console.log(res.data.results);
+      setTvSeriesList(res.data.results);
     });
   };
 
