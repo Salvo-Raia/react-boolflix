@@ -27,7 +27,7 @@ export default function HomePage() {
                 backgroundImage: `url(${
                   movie.poster_path
                     ? "https://image.tmdb.org/t/p/w300" + movie.poster_path
-                    : "https://via.placeholder.com/300x450?text=No+Image"
+                    : "src/assets/img/no-img-placeholder.png"
                 })`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
@@ -52,7 +52,7 @@ export default function HomePage() {
                 backgroundImage: `url(${
                   tv.poster_path
                     ? "https://image.tmdb.org/t/p/w300" + tv.poster_path
-                    : "https://via.placeholder.com/300x450?text=No+Image"
+                    : "src/assets/img/no-img-placeholder.png"
                 })`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
