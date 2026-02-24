@@ -15,6 +15,11 @@ export default function HomePage() {
     return languages[languageId] || "Info non disponibile";
   }
 
+  function rateConversion(rate) {
+    let fixedRate = Math.round(rate / 2);
+    return "⭐".repeat(fixedRate);
+  }
+
   return (
     <div className="container">
       <h2>Film</h2>
@@ -36,7 +41,11 @@ export default function HomePage() {
               <h3>{movie.title}</h3>
               <h4 className="text-muted">{movie.original_title}</h4>
               <p>Lingua originale: {languageToFlag(movie.original_language)}</p>
-              <p>Voto: {movie.vote_average}</p>
+              <p>
+                {movie.vote_average
+                  ? `Voto: ${rateConversion(movie.vote_average)}`
+                  : "Nessuna valutazione"}
+              </p>
             </div>
           </div>
         ))}
@@ -46,7 +55,6 @@ export default function HomePage() {
         {tvSeriesList.map((tv) => (
           <div key={tv.id} className="col">
             <div
-              className="movie-card border p-3"
               className="movie-card border p-3"
               style={{
                 backgroundImage: `url(${
@@ -61,7 +69,11 @@ export default function HomePage() {
               <h3>{tv.name}</h3>
               <h4 className="fs-8 text-muted">{tv.original_name}</h4>
               <p>{languageToFlag(tv.original_language)}</p>
-              <p>Voto: {tv.vote_average}</p>
+              <p>
+                {tv.vote_average
+                  ? `Voto: ${rateConversion(tv.vote_average)}`
+                  : "Nessuna valutazione"}
+              </p>
             </div>
           </div>
         ))}
