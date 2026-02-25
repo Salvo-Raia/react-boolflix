@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useSearch } from "../contexts/SearchContext";
+import { NavLink } from "react-router-dom";
 
 //Base API URL//
 const BASE_API_URL = "https://api.themoviedb.org/3/search/";
@@ -46,7 +47,9 @@ export default function Header() {
   return (
     <nav className="navbar bg-dark">
       <div className="container-fluid">
-        <h1 className="text-danger">BoolFlix</h1>
+        <NavLink className="text-decoration-none">
+          <h1 className="text-danger">BoolFlix</h1>
+        </NavLink>
         <form className="d-flex" role="search" onSubmit={handleSearch}>
           <input
             className="form-control me-2"
