@@ -1,7 +1,14 @@
+import axios from "axios";
+import { useEffect } from "react";
 import { useState } from "react";
+
+const BASE_CAST_API_URL = "https://api.themoviedb.org/3/";
+const API_KEY = "8b9baf966f3d0d2de6f7bc2cc9417531";
 
 export default function MediaCard({
   title,
+  movieId,
+  TvId,
   originalTitle,
   date,
   originalLanguage,
@@ -11,7 +18,48 @@ export default function MediaCard({
   rateConversion,
   posterPath,
 }) {
+  const [movieCast, setMovieCast] = useState([]);
+  const [tvCast, setTvCast] = useState([]);
   const [hovering, setHovering] = useState(false);
+
+  const fetchMovieCast = () => {
+    axios
+      .get(`${BASE_CAST_API_URL}movie/${movieId}/credits`, {
+        params: {
+          api_key: API_KEY,
+        },
+      })
+      .then((res) => {
+        console.log(
+          res.data.cast.slice(0, 5).map((performer) => performer.name),
+        );
+        const moviePerformers = res.data.cast
+          .slice(0, 5)
+          .map((performer) => performer.name);
+        setMovieCast(moviePerformers);
+      });
+  };
+
+  const fetchTVCast = () => {
+    axios
+      .get(`${BASE_CAST_API_URL}tv/${TvId}/aggregate_credits`, {
+        params: {
+          api_key: API_KEY,
+        },
+      })
+      .then((res) => {
+        console.log(
+          res.data.cast.slice(0, 5).map((performer) => performer.name),
+        );
+        const performers = res.data.cast
+          .slice(0, 5)
+          .map((performer) => performer.name);
+        setTvCast(performers);
+      });
+  };
+
+  useEffect(fetchMovieCast, []);
+  useEffect(fetchTVCast, []);
 
   return (
     <div
@@ -45,6 +93,9 @@ export default function MediaCard({
               ) : (
                 <i>Voto: nessuna valutazione</i>
               )}
+            </p>
+            <p>
+              <b>Con:</b> <i>{movieCast.join(", ")}</i>
             </p>
             <p>
               {overview ? overview : <i>Nessuna descrizione disponibile</i>}
