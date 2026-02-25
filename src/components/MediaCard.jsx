@@ -24,6 +24,12 @@ export default function MediaCard({
   const [tvCast, setTvCast] = useState([]);
   const [hovering, setHovering] = useState(false);
   const showCast = media === "movie" ? movieCast : tvCast;
+  const showGenre =
+    genresIds.length > 0
+      ? genresIds
+          .map((id) => genresList.find((genre) => genre.id === id)?.name)
+          .join(", ")
+      : "informazione non disponibile";
 
   // Fetch cast film
   const fetchMovieCast = () => {
@@ -110,13 +116,7 @@ export default function MediaCard({
             </p>
             <p>
               <b>Genere: </b>
-              {genresIds.length > 0
-                ? genresIds
-                    .map(
-                      (id) => genresList.find((genre) => genre.id === id)?.name,
-                    )
-                    .join(", ")
-                : "informazione non disponibile"}
+              {showGenre}
             </p>
             <p>
               {vote ? (

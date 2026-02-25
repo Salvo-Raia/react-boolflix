@@ -1,48 +1,8 @@
-import axios from "axios";
-import { useState } from "react";
 import { useSearch } from "../contexts/SearchContext";
 import { NavLink } from "react-router-dom";
 
-//Base API URL//
-const BASE_API_URL = "https://api.themoviedb.org/3/search/";
-const API_KEY = "8b9baf966f3d0d2de6f7bc2cc9417531";
-
 export default function Header() {
-  const [query, setQuery] = useState("");
-  const { setMovieList, setTvSeriesList } = useSearch();
-
-  //Movie API URL //
-  const movieApiURL = new URL(BASE_API_URL + "movie");
-  movieApiURL.searchParams.set("api_key", API_KEY);
-  movieApiURL.searchParams.set("query", query);
-  movieApiURL.searchParams.set("language", "it-IT");
-  //TV Series API URL //
-  const tvApiURL = new URL(BASE_API_URL + "tv");
-  tvApiURL.searchParams.set("api_key", API_KEY);
-  tvApiURL.searchParams.set("query", query);
-  tvApiURL.searchParams.set("language", "it-IT");
-
-  // Fetch film e serie tv
-  const fetchMovies = () => {
-    axios.get(movieApiURL).then((res) => {
-      console.log(res.data, res.data.results);
-      setMovieList(res.data.results);
-    });
-  };
-
-  const fetchTvSeries = () => {
-    axios.get(tvApiURL).then((res) => {
-      console.log(res.data.results);
-      setTvSeriesList(res.data.results);
-    });
-  };
-
-  //Controllo Submit//
-  const handleSearch = (e) => {
-    e.preventDefault();
-    fetchMovies();
-    fetchTvSeries();
-  };
+  const { handleSearch, query, setQuery } = useSearch();
 
   return (
     <nav className="navbar bg-dark">

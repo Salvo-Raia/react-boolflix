@@ -1,62 +1,17 @@
-import { useEffect, useState } from "react";
 import { useSearch } from "../contexts/SearchContext";
-import axios from "axios";
 import MediaCard from "../components/MediaCard";
 import "flag-icons/css/flag-icons.min.css";
 
-const BASE_CAST_API_URL = "https://api.themoviedb.org/3/";
-const API_KEY = "8b9baf966f3d0d2de6f7bc2cc9417531";
-
-const posterBaseUrl = "https://image.tmdb.org/t/p/300";
-const languages = {
-  en: <span className="fi fi-gb"></span>,
-  it: <span className="fi fi-it"></span>,
-  ja: <span className="fi fi-jp"></span>,
-};
-
 export default function HomePage() {
-  const { movieList, tvSeriesList } = useSearch();
-  const [movieGenresList, setMovieGenresList] = useState([]);
-  const [tvGenresList, setTvGenresList] = useState([]);
+  const {
+    movieList,
+    tvSeriesList,
+    movieGenresList,
+    tvGenresList,
+    languageToFlag,
+    rateConversion,
+  } = useSearch();
 
-  const fetchMovieGenre = () => {
-    axios
-      .get(`${BASE_CAST_API_URL}genre/movie/list`, {
-        params: {
-          api_key: API_KEY,
-        },
-      })
-      .then((res) => {
-        console.log(res.data.genres);
-        setMovieGenresList(res.data.genres);
-      });
-  };
-
-  const fetchTvGenre = () => {
-    axios
-      .get(`${BASE_CAST_API_URL}genre/tv/list`, {
-        params: {
-          api_key: API_KEY,
-        },
-      })
-      .then((res) => {
-        console.log(res.data.genres);
-        setTvGenresList(res.data.genres);
-      });
-  };
-
-  useEffect(() => {
-    (fetchMovieGenre(), fetchTvGenre());
-  }, []);
-
-  function languageToFlag(languageId) {
-    return languages[languageId] || "informazione non disponibile";
-  }
-
-  function rateConversion(rate) {
-    let fixedRate = Math.round(rate / 2);
-    return "⭐".repeat(fixedRate);
-  }
   return movieList && movieList.length > 0 ? (
     <div className="container">
       <section className="Film my-4">
