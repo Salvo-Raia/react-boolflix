@@ -8,6 +8,9 @@ const API_KEY = "8b9baf966f3d0d2de6f7bc2cc9417531";
 export default function MediaCard({
   title,
   id,
+  media,
+  genresIds,
+  genresList,
   originalTitle,
   date,
   originalLanguage,
@@ -20,7 +23,9 @@ export default function MediaCard({
   const [movieCast, setMovieCast] = useState([]);
   const [tvCast, setTvCast] = useState([]);
   const [hovering, setHovering] = useState(false);
+  const showCast = media === "movie" ? movieCast : tvCast;
 
+  // Fetch cast film
   const fetchMovieCast = () => {
     axios
       .get(`${BASE_CAST_API_URL}movie/${id}/credits`, {
@@ -41,6 +46,7 @@ export default function MediaCard({
       });
   };
 
+  // Fetch cast serie TV
   const fetchTVCast = () => {
     axios
       .get(`${BASE_CAST_API_URL}tv/${id}/aggregate_credits`, {
@@ -66,8 +72,15 @@ export default function MediaCard({
       });
   };
 
-  useEffect(fetchMovieCast, []);
-  useEffect(fetchTVCast, []);
+  useEffect(() => {
+    if (media === "movie") {
+      fetchMovieCast();
+    }
+
+    if (media === "tv") {
+      fetchTVCast();
+    }
+  }, []);
 
   return (
     <div
@@ -96,6 +109,16 @@ export default function MediaCard({
               <b>Lingua originale:</b> {languageToFlag(originalLanguage)}
             </p>
             <p>
+              <b>Genere: </b>
+              {genresIds.length > 0
+                ? genresIds
+                    .map(
+                      (id) => genresList.find((genre) => genre.id === id)?.name,
+                    )
+                    .join(", ")
+                : "informazione non disponibile"}
+            </p>
+            <p>
               {vote ? (
                 <b>Voto: {rateConversion(vote)}</b>
               ) : (
@@ -103,7 +126,7 @@ export default function MediaCard({
               )}
             </p>
             <p>
-              <b>Con:</b> <i>{movieCast.join(", ")}</i>
+              <b>Con:</b> <i>{showCast.join(", ")}</i>
             </p>
             <p>
               {overview ? overview : <i>Nessuna descrizione disponibile</i>}
