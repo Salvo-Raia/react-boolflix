@@ -20,8 +20,7 @@ export default function HomePage() {
     let fixedRate = Math.round(rate / 2);
     return "⭐".repeat(fixedRate);
   }
-
-  return (
+  return movieList && movieList.length > 0 ? (
     <div className="container">
       <section className="Film my-4">
         <h2>Film</h2>
@@ -64,6 +63,10 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+    </div>
+  ) : (
+    <div className="container text-center text-white my-3 ">
+      <h3 className="h2">Cerca nel nostro catalogo</h3>
     </div>
   );
 }
