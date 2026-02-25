@@ -24,7 +24,7 @@ export default function Header() {
   // Fetch film e serie tv
   const fetchMovies = () => {
     axios.get(movieApiURL).then((res) => {
-      console.log(res.data.results);
+      console.log(res.data, res.data.results);
       setMovieList(res.data.results);
     });
   };
@@ -51,12 +51,12 @@ export default function Header() {
           <input
             className="form-control me-2"
             type="search"
-            placeholder="Cerca"
-            aria-label="Cerca"
+            placeholder="Inserisci un titolo..."
+            aria-label="Inserisci un titolo..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <button className="btn btn-outline-danger">Search</button>
+          <button className="btn btn-outline-danger">Cerca</button>
         </form>
       </div>
     </nav>
