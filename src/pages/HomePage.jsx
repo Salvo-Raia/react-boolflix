@@ -1,5 +1,6 @@
 import { useSearch } from "../contexts/SearchContext";
 import "flag-icons/css/flag-icons.min.css";
+import MediaCard from "../components/MediaCard";
 
 const posterBaseUrl = "https://image.tmdb.org/t/p/300";
 const languages = {
@@ -25,57 +26,33 @@ export default function HomePage() {
       <h2>Film</h2>
       <div className="row row-cols-4 g-2 my-5">
         {movieList.map((movie) => (
-          <div key={movie.id} className="col">
-            <div
-              className="movie-card border p-3"
-              style={{
-                backgroundImage: `url(${
-                  movie.poster_path
-                    ? "https://image.tmdb.org/t/p/w300" + movie.poster_path
-                    : "src/assets/img/no-img-placeholder.png"
-                })`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <h3>{movie.title}</h3>
-              <h4 className="text-muted">{movie.original_title}</h4>
-              <p>Lingua originale: {languageToFlag(movie.original_language)}</p>
-              <p>
-                {movie.vote_average
-                  ? `Voto: ${rateConversion(movie.vote_average)}`
-                  : "Nessuna valutazione"}
-              </p>
-            </div>
-          </div>
+          <MediaCard
+            key={movie.id}
+            posterPath={movie.poster_path}
+            title={movie.title}
+            originalTitle={movie.original_title}
+            originalLanguage={movie.originalLanguage}
+            vote={movie.vote_average}
+            language={movie.original_language}
+            languageToFlag={languageToFlag}
+            rateConversion={rateConversion}
+          />
         ))}
       </div>
       <h2>Serie TV </h2>
       <div className="row row-cols-4 g-2 my-5">
-        {tvSeriesList.map((tv) => (
-          <div key={tv.id} className="col">
-            <div
-              className="movie-card border p-3"
-              style={{
-                backgroundImage: `url(${
-                  tv.poster_path
-                    ? "https://image.tmdb.org/t/p/w300" + tv.poster_path
-                    : "src/assets/img/no-img-placeholder.png"
-                })`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <h3>{tv.name}</h3>
-              <h4 className="fs-8 text-muted">{tv.original_name}</h4>
-              <p>{languageToFlag(tv.original_language)}</p>
-              <p>
-                {tv.vote_average
-                  ? `Voto: ${rateConversion(tv.vote_average)}`
-                  : "Nessuna valutazione"}
-              </p>
-            </div>
-          </div>
+        {tvSeriesList.map((tvSeries) => (
+          <MediaCard
+            key={tvSeries.id}
+            posterPath={tvSeries.poster_path}
+            title={tvSeries.name}
+            originalTitle={tvSeries.original_name}
+            originalLanguage={tvSeries.originalLanguage}
+            vote={tvSeries.vote_average}
+            language={tvSeries.original_language}
+            languageToFlag={languageToFlag}
+            rateConversion={rateConversion}
+          />
         ))}
       </div>
     </div>

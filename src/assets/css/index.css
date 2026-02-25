@@ -1,4 +1,14 @@
 /* Movie Card */ 
-.movie-card {
+.col {
+    position: relative;
+}
+
+.card {
     height: 500px;
+}
+
+.card-info {
+    background-color: rgba(0, 0, 0, 0.651);
+    height: 500px;
+    color: white;
 }
