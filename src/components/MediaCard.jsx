@@ -7,8 +7,7 @@ const API_KEY = "8b9baf966f3d0d2de6f7bc2cc9417531";
 
 export default function MediaCard({
   title,
-  movieId,
-  TvId,
+  id,
   originalTitle,
   date,
   originalLanguage,
@@ -24,37 +23,46 @@ export default function MediaCard({
 
   const fetchMovieCast = () => {
     axios
-      .get(`${BASE_CAST_API_URL}movie/${movieId}/credits`, {
-        params: {
-          api_key: API_KEY,
-        },
+      .get(`${BASE_CAST_API_URL}movie/${id}/credits`, {
+        params: { api_key: API_KEY },
       })
       .then((res) => {
-        console.log(
-          res.data.cast.slice(0, 5).map((performer) => performer.name),
-        );
-        const moviePerformers = res.data.cast
-          .slice(0, 5)
-          .map((performer) => performer.name);
-        setMovieCast(moviePerformers);
+        if (res.data.cast && res.data.cast.length > 0) {
+          const moviePerformers = res.data.cast
+            .slice(0, 5)
+            .map((performer) => performer.name);
+          setMovieCast(moviePerformers);
+        } else {
+          setMovieCast(["Informazioni sul cast non disponibili"]);
+        }
+      })
+      .catch((err) => {
+        console.error("Errore nel fetch del cast:", err);
       });
   };
 
   const fetchTVCast = () => {
     axios
-      .get(`${BASE_CAST_API_URL}tv/${TvId}/aggregate_credits`, {
+      .get(`${BASE_CAST_API_URL}tv/${id}/aggregate_credits`, {
         params: {
           api_key: API_KEY,
         },
       })
       .then((res) => {
-        console.log(
-          res.data.cast.slice(0, 5).map((performer) => performer.name),
-        );
-        const performers = res.data.cast
-          .slice(0, 5)
-          .map((performer) => performer.name);
-        setTvCast(performers);
+        if (res.data.cast && res.data.cast.length > 0) {
+          console.log(
+            res.data.cast.slice(0, 5).map((performer) => performer.name),
+          );
+          const performers = res.data.cast
+            .slice(0, 5)
+            .map((performer) => performer.name);
+          setTvCast(performers);
+        } else {
+          setTvCast(["Informazioni sul cast non disponibili"]);
+        }
+      })
+      .catch((err) => {
+        console.error("Informazioni non disponibili:", err);
       });
   };
 

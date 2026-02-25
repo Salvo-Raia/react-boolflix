@@ -28,7 +28,7 @@ export default function HomePage() {
           {movieList.map((movie) => (
             <MediaCard
               key={movie.id}
-              movieId={movie.id}
+              id={movie.id}
               posterPath={movie.poster_path}
               title={movie.title}
               originalTitle={movie.original_title}
@@ -50,7 +50,7 @@ export default function HomePage() {
           {tvSeriesList.map((tvSeries) => (
             <MediaCard
               key={tvSeries.id}
-              TvId={tvSeries.id}
+              id={tvSeries.id}
               posterPath={tvSeries.poster_path}
               title={tvSeries.name}
               originalTitle={tvSeries.original_name}
