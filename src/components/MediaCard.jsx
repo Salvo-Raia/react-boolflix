@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 export default function MediaCard({
-  movie,
   title,
   originalTitle,
+  date,
   originalLanguage,
   vote,
+  overview,
   languageToFlag,
   rateConversion,
   posterPath,
@@ -19,7 +20,7 @@ export default function MediaCard({
       onMouseLeave={() => setHovering(false)}
     >
       <div
-        className="card border"
+        className="card"
         style={{
           backgroundImage: `url(${
             posterPath
@@ -32,11 +33,21 @@ export default function MediaCard({
       >
         {hovering && (
           <div className="card-info p-3">
-            <h3>{title}</h3>
-            <h4>{originalTitle}</h4>
-            <p>Lingua originale: {languageToFlag(originalLanguage)}</p>
+            <h3 className="h2">{title}</h3>
+            <h4 className="h5">{originalTitle}</h4>
+            <p className="text-small">{date}</p>
             <p>
-              {vote ? `Voto: ${rateConversion(vote)}` : "Nessuna valutazione"}
+              <b>Lingua originale:</b> {languageToFlag(originalLanguage)}
+            </p>
+            <p>
+              {vote ? (
+                <b>Voto: {rateConversion(vote)}</b>
+              ) : (
+                <i>Voto: nessuna valutazione</i>
+              )}
+            </p>
+            <p>
+              {overview ? overview : <i>Nessuna descrizione disponibile</i>}
             </p>
           </div>
         )}

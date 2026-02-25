@@ -44,9 +44,9 @@ export default function Header() {
   };
 
   return (
-    <nav className="navbar bg-body-tertiary">
+    <nav className="navbar bg-dark">
       <div className="container-fluid">
-        <a className="navbar-brand">Navbar</a>
+        <h1 className="text-danger">BoolFlix</h1>
         <form className="d-flex" role="search" onSubmit={handleSearch}>
           <input
             className="form-control me-2"
@@ -56,7 +56,7 @@ export default function Header() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <button className="btn btn-outline-success">Search</button>
+          <button className="btn btn-outline-danger">Search</button>
         </form>
       </div>
     </nav>

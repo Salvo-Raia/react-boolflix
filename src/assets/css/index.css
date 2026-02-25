@@ -1,14 +1,29 @@
-/* Movie Card */ 
-.col {
-    position: relative;
+/* Generics */
+body {
+    background-color: rgb(63, 63, 63);
 }
 
+h2 {
+    width: 20%;
+    padding-bottom: 5px;
+    color: white;
+}
+
+/* Movie Card */ 
 .card {
     height: 500px;
+    border: 1px solid rgb(63, 63, 63);
+    border-radius: 10px;
 }
 
 .card-info {
-    background-color: rgba(0, 0, 0, 0.651);
     height: 500px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
+    overflow-y: scroll;
+}
+
+.text-small {
+    font-size: 12px;
 }
