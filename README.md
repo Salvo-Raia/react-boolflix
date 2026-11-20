@@ -1,23 +1,18 @@
 ![Static Badge](https://img.shields.io/badge/Boolean_Tech_Academy-1565C0?style=for-the-badge)
 
-# 🎓 Exercise 41/50: BoolFlix
+# Exercise 41/50: BoolFlix
 
 A Netflix-inspired movie and TV series search application built with React and The Movie Database (TMDB) API. Users can search for titles, explore results and view detailed information through interactive cards.
 
-## 📌 Project Overview
+## Project pverview
 
-| Property | Details |
-|:--|:--|
-| Repository | `react-boolflix` |
-| Category | Boolean Tech Academy |
-| Type | Exercise |
-| Exercise | 41/50 |
+| Repository | Project | Category | Main Focus | Exercise |
+|:--|:--|:--|:--|:--|
+| react-boolflix | BoolFlix | Exercise | React, TMDB API & Dynamic Search | 41/50 |
 
-## 🎯 Assignment
+## Assignment
 
 Build a movie and TV series search application using **[The Movie Database (TMDB)](https://www.themoviedb.org/)** API.
-
-#### API Setup
 
 1. Create a free account on [TMDB](https://www.themoviedb.org/).
 2. Request an API key from **Settings → API → Request a new API key**.
@@ -25,13 +20,13 @@ Build a movie and TV series search application using **[The Movie Database (TMDB
 
 Refer to the [TMDB API documentation](https://developers.themoviedb.org/3) for available endpoints.
 
-The main endpoint for this exercise is **Search Movies**:
+The main endpoint for this exercise is **Search Movies**
 
 `https://api.themoviedb.org/3/search/movie`
 
 Pass the `query` and `api_key` parameters to retrieve matching movies. You can also use `language=it-IT` to request results in Italian.
 
-#### Milestone 1 - Movie Search
+#### Milestone 1: Movie Search
 
 Create a basic layout with a search bar containing an input field and a button.
 
@@ -43,7 +38,7 @@ Create a basic layout with a search bar containing an input field and a button.
   - Language
   - Rating
 
-#### Milestone 2 - Flags and TV Series
+#### Milestone 2: Flags and TV Series
 
 Improve the search results and extend the search functionality.
 
@@ -53,11 +48,11 @@ Improve the search results and extend the search functionality.
 - Use the same search action to retrieve both movies and TV series.
 - Normalize the API responses into a consistent data structure, accounting for differences between movie and TV series properties.
 
-TV series endpoint:
+**TV series endpoint**
 
 `https://api.themoviedb.org/3/search/tv`
 
-#### Milestone 3 - Posters and Star Ratings
+#### Milestone 3: Posters and Star Ratings
 
 Enhance the results by displaying posters and converting numerical ratings into visual star ratings.
 
@@ -68,7 +63,7 @@ Enhance the results by displaying posters and converting numerical ratings into 
 - Append the desired image size and the image path returned by the API.
 - Use `w342` as the recommended poster size.
 
-Example:
+Example
 
 `https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png`
 
@@ -79,7 +74,7 @@ Example:
 - Display full and empty stars using Font Awesome icons.
 - Do not implement half-filled stars.
 
-#### Milestone 4 - Netflix-Inspired Web App
+#### Milestone 4: Netflix-Inspired Web App
 
 Transform the application into a complete web experience inspired by Netflix.
 
@@ -99,7 +94,7 @@ Transform the application into a complete web experience inspired by Netflix.
   - Rating and star icons
   - Overview
 
-#### Milestone 5 - Cast and Genres (Optional)
+#### Milestone 5: Cast and Genres (Optional)
 
 Retrieve additional information about each movie or TV series.
 
@@ -109,7 +104,7 @@ Retrieve additional information about each movie or TV series.
 
 `Genre 1, Genre 2, ...`
 
-#### Milestone 6 - Genre Filters (Optional)
+#### Milestone 6: Genre Filters (Optional)
 
 Add genre-based filtering functionality.
 
@@ -117,7 +112,7 @@ Add genre-based filtering functionality.
 - Create separate filters for movie and TV genres.
 - Allow users to show or hide search results based on the selected genres.
 
-### 🔎 Notes 
+##### Notes 
 
 Follow the milestones in order and focus on functionality before styling.
 
@@ -131,10 +126,10 @@ Follow the milestones in order and focus on functionality before styling.
 
 **Important:** Milestones 5 and 6 are optional extensions and can be tackled after completing the first four milestones.
 
-## 🛠️ Technologies
+## Technologies
 ![JSX](https://img.shields.io/badge/JSX-6A1B9A?style=flat-square&logo=react&logoColor=F7DF1E&labelColor=6A1B9A&color=6A1B9A) ![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=css&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
 
-## 💡 What I Learned
+## What I Learned
 
 - Integrating external APIs into a React application.
 - Managing API keys and request parameters.
@@ -147,6 +142,6 @@ Follow the milestones in order and focus on functionality before styling.
 - Implementing interactive card layouts and hover effects.
 - Filtering results using categories and genres.
 
-## ©️ Credits
+## Credits
 
-Exercise assigned by **Boolean Tech Academy** as part of the Web Development course (Class 152, A.Y. 2025–2026).
+Exercise assigned by **Boolean Tech Academy** as part of the Web Development course (Class 152, A.Y. 2025-2026).
