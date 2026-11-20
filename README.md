@@ -8,7 +8,7 @@ A Netflix-inspired movie and TV series search application built with React and T
 
 | Repository | Project | Category | Main Focus | Exercise |
 |:--|:--|:--|:--|:--|
-| react-boolflix | BoolFlix | Exercise | React, TMDB API & Dynamic Search | 41/50 |
+| react-boolflix | BoolFlix | Exercise | React, API & Dynamic search | 41/50 |
 
 ## Assignment
 
