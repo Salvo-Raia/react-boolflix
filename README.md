@@ -67,7 +67,7 @@ Example
 
 `https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png`
 
-**Star ratings:**
+**Star ratings**
 
 - Convert the original rating (decimal value from 1 to 10) into an integer rating from 1 to 5.
 - Always round up to the next integer.
