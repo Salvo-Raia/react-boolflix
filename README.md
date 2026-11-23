@@ -122,9 +122,9 @@ Follow the milestones in order and focus on functionality before styling.
 - Keep the code clean, concise and easy to maintain before moving on to the next milestone.
 - It is better to complete fewer milestones with well-written code than to rush through all of them.
 
-**Useful reference:** [List of ISO 639-1 language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
-
 **Important:** Milestones 5 and 6 are optional extensions and can be tackled after completing the first four milestones.
+
+**Useful reference:** [List of ISO 639-1 language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
 
 ## Technologies
 ![JSX](https://img.shields.io/badge/JSX-6A1B9A?style=flat-square&logo=react&logoColor=F7DF1E&labelColor=6A1B9A&color=6A1B9A) 
