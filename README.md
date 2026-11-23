@@ -8,7 +8,7 @@ A Netflix-inspired movie and TV series search application built with React and T
 
 | Repository | Project | Category | Main Focus | Exercise |
 |:--|:--|:--|:--|:--|
-| react-boolflix | BoolFlix | Exercise | React, API & Dynamic search | 41/50 |
+| react-boolflix | BoolFlix | Exercise | React, API, dynamic search | 41/50 |
 
 ## Assignment
 
@@ -69,12 +69,11 @@ Example
 
 **Star ratings**
 
-- Convert the original rating (decimal value from 1 to 10) into an integer rating from 1 to 5.
-- Always round up to the next integer.
+- Convert the original rating (a decimal value from 1 to 10) into an integer rating from 1 to 5 by dividing it by 2 and rounding up.
 - Display full and empty stars using Font Awesome icons.
 - Do not implement half-filled stars.
 
-#### Milestone 4: Netflix-Inspired web app
+#### Milestone 4: Netflix-inspired web app
 
 Transform the application into a complete web experience inspired by Netflix.
 
@@ -112,7 +111,7 @@ Add genre-based filtering functionality.
 - Create separate filters for movie and TV genres.
 - Allow users to show or hide search results based on the selected genres.
 
-##### Notes 
+##### Notes
 
 Follow the milestones in order and focus on functionality before styling.
 
@@ -127,6 +126,7 @@ Follow the milestones in order and focus on functionality before styling.
 **Useful reference:** [List of ISO 639-1 language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
 
 ## Technologies
+
 ![JSX](https://img.shields.io/badge/JSX-6A1B9A?style=flat-square&logo=react&logoColor=F7DF1E&labelColor=6A1B9A&color=6A1B9A) 
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=css&logoColor=white) 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) 
